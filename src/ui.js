@@ -16,10 +16,8 @@ export class App {
     this.ctx = this.cnv.getContext('experimental-webgl')
     this.mEffect = new Effect(this.ctx, this.cnv.width, this.cnv.height)
 
-    this.mMouseOriX = 0
-    this.mMouseOriY = 0
-    this.mMousePosX = 0
-    this.mMousePosY = 0
+    this.mouseOrigin = [ 0, 0 ]
+    this.mousePosition = [ 0, 0 ]
 
     document.on('resize', (evt) => {
       this.ctx.viewportWidth = evt.width
@@ -28,20 +26,20 @@ export class App {
     })
 
     document.on('mousedown', (ev) => {
-      this.mMouseOriX = ev.x
-      this.mMouseOriY = ev.y
+      this.mouseOrigin[0] = ev.x
+      this.mouseOrigin[1] = ev.y
     })
 
     document.on('mousemove', (ev) => {
-      if (this.mMouseOriX > 0) {
-        this.mMousePosX = ev.pageX
-        this.mMousePosY = ev.pageY
+      if (this.mouseOrigin[0] > 0) {
+        this.mousePosition[0] = ev.pageX
+        this.mousePosition[1] = ev.pageY
       }
     })
 
     document.on('mouseup', (ev) => {
-      this.mMouseOriX = -1
-      this.mMouseOriY = -1
+      this.mouseOrigin[0] = -1
+      this.mouseOrigin[1] = -1
     })
 
     document.on('keyup', (ev) => {
@@ -100,7 +98,7 @@ export class App {
 
   render (t) {
     const time = t - this.startTime
-    this.mEffect.Paint(time / 1000.0, this.mMouseOriX, this.mMouseOriY, this.mMousePosX, this.mMousePosY)
+    this.mEffect.Paint(time / 1000.0, this.mouseOrigin[0], this.mouseOrigin[1], this.mousePosition[0], this.mousePosition[1])
     this.ctx.flush()
     requestAnimationFrame(this.render, 0)
   }
