@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node src/index.js",
-    "build": "rimraf rtlviz && pkg src/index.js --public -o shadertoy"
+    "build": "rimraf shadertoy && pkg src/index.js --public -o shadertoy"
   },
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
