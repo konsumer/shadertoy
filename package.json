@@ -2,14 +2,14 @@
   "name": "shadertoy",
   "version": "0.0.0",
   "scripts": {
-    "start": "node src/cli.js",
-    "build": "rimraf rtlviz && pkg src/cli.js --public -o shadertoy"
+    "start": "node src/index.js",
+    "build": "rimraf rtlviz && pkg src/index.js --public -o shadertoy"
   },
   "author": "David Konsumer <konsumer@jetboystudio.com> (http://konsumer.js.org)",
   "license": "MIT",
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
     "node-webgl": "^0.5.5"
   },
   "babel": {

@@ -1,3 +1,5 @@
-import { document } from './ui'
+#!/usr/bin/env node
 
-document.setTitle('rtlviz')
+// Entry-point for rtlviz
+require('babel-register')
+require('./main')
