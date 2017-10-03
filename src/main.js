@@ -1,3 +1,3 @@
 import { document } from './ui'
 
-document.setTitle('rtlviz')
+document.setTitle('shadertoy')
