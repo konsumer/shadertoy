@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-// Entry-point for rtlviz
+// Entry-point for app
 require('babel-register')
 require('./main')
